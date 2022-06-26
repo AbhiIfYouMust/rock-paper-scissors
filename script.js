@@ -28,10 +28,34 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-/* function game() {
+function game() {
+    let user = 0;
+    let comp = 0;
+
     for (let i = 0; i < 5; i++) {
-        return playRound('rock', computerPlay());
+        results = playRound(window.prompt('Rock, paper or scissors'), computerPlay())
+        console.log(results)
+
+        if (results.slice(0,2) === 'Yo') {
+            comp++
+        }
+
+        else if (results.slice(0,2) === 'Co') {
+            user++;
+        }
     }
-} */
+
+    if (user > comp) {
+        return 'Player wins'
+    }
+
+    else if (comp > user) {
+        return 'Computer wins'
+    }
+
+    else {
+        return "It's a tie"
+    }
+}
 
 console.log(game());
