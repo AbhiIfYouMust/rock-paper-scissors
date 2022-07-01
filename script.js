@@ -1,61 +1,48 @@
-function computerPlay() {
+// Random selection of computer move
+function computerSelection() {
     const moves = ['rock', 'paper', 'scissors'];
-    return moves[Math.floor(Math.random()*moves.length)]
+    return moves[Math.floor(Math.random()*moves.length)];
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+// TODO
+function playAnimation () {   
+}
 
-    if (playerSelection === computerSelection) {
-        return "Tie";
+//TODO
+function selectImage () {
+
+}
+
+// Plays a round of game
+function playRound() {
+    let computerMove = computerSelection();
+    let playerMove = this.id;
+
+    if (playerMove === computerMove) {
+        document.querySelector('.results').textContent = "Tie"
+        return "Tie"
     }
 
-    else if (playerSelection === 'rock' &&  computerSelection === 'paper') {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    else if (playerMove === 'rock' &&  computerMove === 'paper') {
+        document.querySelector('.results').textContent = "Lost"
+        return "Lost";
     }
 
-    else if (playerSelection === 'paper' &&  computerSelection === 'scissors') {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    else if (playerMove === 'paper' &&  computerMove === 'scissors') {
+        document.querySelector('.results').textContent = "Lost"
+        return "Lost";
     }
 
-    else if (playerSelection === 'scissors' &&  computerSelection === 'rock') {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    else if (playerMove === 'scissors' &&  computerMove === 'rock') {
+        document.querySelector('.results').textContent = "Lost"
+        return "Lost";
     }
 
     else {
-        return `Congratulations! ${playerSelection} beats ${computerSelection}`;
-    }
-
-}
-
-function game() {
-    let user = 0;
-    let comp = 0;
-
-    for (let i = 0; i < 5; i++) {
-        results = playRound(window.prompt('Rock, paper or scissors'), computerPlay())
-        console.log(results)
-
-        if (results.slice(0,2) === 'Yo') {
-            comp++
-        }
-
-        else if (results.slice(0,2) === 'Co') {
-            user++;
-        }
-    }
-
-    if (user > comp) {
-        return 'Player wins'
-    }
-
-    else if (comp > user) {
-        return 'Computer wins'
-    }
-
-    else {
-        return "It's a tie"
+        document.querySelector('.results').textContent = "Won"
+        return "Won";
     }
 }
 
-console.log(game());
+let Buttons = document.querySelectorAll("button");
+    Buttons.forEach(button => button.addEventListener("click", playRound));
