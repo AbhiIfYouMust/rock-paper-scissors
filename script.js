@@ -38,8 +38,8 @@ function playRound() {
         let CompImg = document.querySelector("#comp");
         let UserImg = document.querySelector("#user");
 
-        CompImg.setAttribute("src", `${computerMove}M.png`);
-        UserImg.setAttribute("src", `${playerMove}.png`);
+        CompImg.setAttribute("src", `${computerMove}M.PNG`);
+        UserImg.setAttribute("src", `${playerMove}.PNG`);
 
         if (playerMove === computerMove) {
             document.querySelector("#user1").textContent = `You: ${user}`;
